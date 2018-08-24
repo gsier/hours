@@ -13,34 +13,73 @@
  *= require_tree .
  *= require_self
  */
-.padding {
+
+// colors
+$black: rgba(0, 0, 0, 0.65);
+$cream: rgba(255, 255, 255, 0.1);
+$white: #fff;
+$grey: #fafafa;
+$blue: #00a9ff;
+$steelblue: rgba(0, 67, 255, 0.02);
+$green: rgba(166, 226, 46, 0.2);
+$darkgreen: #2bbb23;
+$orange: rgba(255, 165, 0, 0.1);
+$fuschia: #02d400;
+$yellow: #efe158;
+$purple: #ae81ff;
+$light-blue: #e9f9e6;
+$darkgrey: #cacaca;
+
+// properties
+$background: $grey;
+$text-color: $black;
+
+%padding {
   padding: 10px;
   text-align: center;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
+%center {
+  margin: auto;
+  width: 85%;
+}
+
+.padding {
+  @extend %padding;
+}
+
+// fonts
+// anchors
 a {
-  color: #00a9ff;
-  text-decoration: none; }
-  a:visited {
-    color: #00a9ff; }
-  a:hover {
-    background-color: #e9f9e6;
-    color: #00a9ff;
+  color: $blue;
+  text-decoration: none;
+  &:visited {
+    color: $blue;
+  }
+  &:hover {
+    background-color: $light-blue;
+    color: $blue;
     border-spacing: 10px;
-    border-collapse: separate; }
+    border-collapse: separate;
+  }
+}
 
+// html
 html {
   font-size: 100%;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%; }
+  -ms-text-size-adjust: 100%;
+}
 
 body {
   margin: 0;
   font-size: 13px;
-  line-height: 18px;
-  background: #fafafa; }
+  line-height: 18px; //background: #00303e;
+  background: $background;
+}
 
 html,
 body,
@@ -53,7 +92,8 @@ textarea,
 pre {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-weight: 700;
-  color: rgba(0, 0, 0, 0.65); }
+  color: $text-color;
+}
 
 article,
 details,
@@ -61,50 +101,63 @@ footer,
 header,
 nav,
 section {
-  display: block; }
+  display: block;
+}
 
 .blue-background {
-  background-color: #fff; }
-  .blue-background:hover {
-    background-color: #e9f9e6; }
+  background-color: $white;
+  &:hover {
+    background-color: $light-blue;
+  }
+}
 
 form {
   position: relative;
-  /*pointer-events: none;*/ }
+  /*pointer-events: none;*/
+}
 
 .fold {
   color: #fff;
-  background: #ae81ff; }
+  background: #ae81ff;
+}
 
 .noselect {
   -webkit-user-select: none;
   -moz-user-select: -moz-none;
   -ms-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 .playerControls {
-  cursor: default; }
+  cursor: default;
+}
 
 .playerControls .active {
   color: #66d9ef;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 /*
   6 column system
   3 sizes: sm md lg
 */
+
 td {
   padding: 7px;
-  text-align: center; }
-  td input {
-    width: 95%; }
+  text-align: center;
+  input {
+    width: 95%;
+  }
+}
 
 .left {
-  text-align: left; }
+  text-align: left;
+}
 
 .borders {
   border-radius: 5px;
-  box-shadow: 0px 0px 1px 0px rgba(95, 136, 255, 0.2); }
+  box-shadow: 0px 0px 1px 0px rgba(95, 136, 255, 0.2)
+}
 
 input,
 select,
@@ -113,58 +166,75 @@ option {
   border: 1px solid rgba(153, 153, 153, 0.1);
   border-radius: 5px;
   width: 100%;
-  padding: 3px; }
+  padding: 3px;
+}
 
 option {
-  background-color: #fff; }
+  background-color: #fff;
+}
+
 
 table {
   margin-left: auto;
-  margin-right: auto; }
-  table .noc {
-    margin: 0; }
+  margin-right: auto;
+  .noc {
+    margin: 0;
+  }
+}
 
 .form-control {
-  width: 100px; }
+  width: 100px;
+}
+
 
 .form-action {
   background: #375200;
   color: #fd971f;
   width: 3%;
   float: left;
-  margin: 0 2% 0 2%; }
+  margin: 0 2% 0 2%;
+}
 
 .new-data {
-  color: #fd971f; }
+  color: #fd971f;
+}
 
 .divider {
   background: #fefefe;
-  height: 1px; }
+  height: 1px;
+}
 
 .orange {
-  background: rgba(255, 165, 0, 0.1); }
+  background: $orange;
+}
 
 .blue {
-  background: rgba(0, 67, 255, 0.02); }
+  background: $steelblue;
+}
 
 .green {
-  background: rgba(166, 226, 46, 0.2);
-  color: #2bbb23; }
+  background: $green;
+  color: $darkgreen;
+}
 
 .red-text {
-  color: red; }
+  color: red;
+}
 
 .pointer {
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .totalgrey {
-  background: #cacaca;
-  color: #cacaca;
-  border: #cacaca;
-  border-radius: 0px; }
+  background: $darkgrey;
+  color: $darkgrey;
+  border: $darkgrey;
+  border-radius: 0px;
+}
 
 .control-table {
   position: fixed;
   top: 20px;
   left: 20px;
-  float: left; }
+  float: left;
+}

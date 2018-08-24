@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "sass:compile": "node-sass --include-path sass /home/ubuntu/workspace/hours/public/stylesheets/style.scss /home/ubuntu/workspace/hours/public/stylesheets/style.css"
+    // npm run sass:compile
   },
   "dependencies": {
     "bootstrap": "^4.1.3",
@@ -14,5 +16,8 @@
     "hbs": "~4.0.1",
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.3"
   }
 }
